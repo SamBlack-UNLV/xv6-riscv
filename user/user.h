@@ -24,6 +24,7 @@ int getpid(void);
 char *sys_sbrk(int, int);
 int pause(int);
 int uptime(void);
+void procinfo(void); // our added syscall
 
 // ulib.c
 int stat(const char *, struct stat *);
