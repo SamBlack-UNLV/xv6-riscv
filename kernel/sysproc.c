@@ -107,3 +107,9 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+// Our added syscall entry point, calls the declared function and returns an abritary #
+void sys_procinfo(void)
+{
+  procinfo();
+}

@@ -690,3 +690,35 @@ procdump(void)
     printf("\n");
   }
 }
+
+
+// Our print information syscall definition
+// Prints the following information, name, state, # of bytes, parent, and parent's state
+void procinfo(void){
+  struct proc *p = myproc(); // how we're going to obtain the proccess' characteristics
+  // Strings for formatting
+  const char* colon = " : ";
+  const char* state = "State: ";
+  const char* bytes = " bytes";
+  const char* parent_pid = "Parent";
+  // start of the printing (I HATE IT)
+  printf("%s %s %d", p->name, colon, p->pid);
+  //printf(p->name, " : %s", p->pid);
+  printf("\n");
+  printf("\t");
+  printf("%s %d", state, p->state);
+  //printf("State: ", p->state);
+  printf("\n");
+  printf("\t");
+  printf("%ld %s", p->sz, bytes);
+  //printf(p->size, bytes);
+  printf("\n");
+  printf("\t");
+  printf("%s %s %d", parent_pid, colon, p->parent->pid);
+  //printf("Parent: ", p->parent->pid);
+  printf("\n");
+  printf("\t");
+  printf("\t");
+  printf("%s %s %d", state, colon, p->parent->state);
+  //printf("Sate : ", p->parent->state);
+}
